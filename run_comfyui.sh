@@ -1,4 +1,3 @@
-cd /workspace/ComfyUI/venv
+cd /workspace/ComfyUI/
 source bin/activate
-cd /workspace/ComfyUI
 python main.py --listen 0.0.0.0 --port 6006 --use-sage-attention
