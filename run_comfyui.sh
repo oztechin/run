@@ -1,4 +1,3 @@
-apt install psmisc
 cd /workspace/ComfyUI/venv
 source bin/activate
 cd /workspace/ComfyUI
