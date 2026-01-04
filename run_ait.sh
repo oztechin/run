@@ -1,5 +1,5 @@
 cd /workspace/ai-toolkit
-python -m venv venv
+#python -m venv venv
 source venv/bin/activate
 git pull
 pip install -r requirements.txt
