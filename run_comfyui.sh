@@ -1,14 +1,18 @@
-#cd /workspace/ComfyUI/
+cd /workspace/ComfyUI/
 #git pull --rebase --autostash
 #source venv/bin/activate
 #pip install -r requirements.txt
 #python main.py --listen 0.0.0.0 --port 6006 --use-sage-attention
+
 #!/usr/bin/env bash
 set -e
 
-echo "===> ComfyUI Clean Installer (H100 + cu130)"
+echo "===> ComfyUI Clean Installer (H100 + cu130 @ /workspace)"
 
-# 0) Ön koşul: NVIDIA sürücüsü var mı?
+BASE_DIR="/workspace"
+COMFY_DIR="$BASE_DIR/ComfyUI"
+
+# 0) NVIDIA kontrol
 echo "===> Checking NVIDIA driver..."
 nvidia-smi || { echo "NVIDIA driver not found!"; exit 1; }
 
@@ -20,17 +24,18 @@ apt install -y \
   git wget ffmpeg libgl1 libglib2.0-0 \
   build-essential
 
-# 2) Temizlik (eski kalıntılar)
-echo "===> Cleaning old installs..."
-rm -rf ~/ComfyUI
+# 2) Eski kurulumu TEMİZLE
+echo "===> Removing old ComfyUI at $COMFY_DIR ..."
+rm -rf "$COMFY_DIR"
 rm -rf ~/.cache/torch_extensions
 rm -rf ~/.cache/pip
 
 # 3) ComfyUI klonla
-echo "===> Cloning ComfyUI..."
-cd ~
+echo "===> Cloning ComfyUI into $COMFY_DIR ..."
+cd "$BASE_DIR"
 git clone https://github.com/comfyanonymous/ComfyUI.git
-cd ComfyUI
+
+cd "$COMFY_DIR"
 
 # 4) Virtualenv oluştur
 echo "===> Creating venv..."
@@ -74,13 +79,13 @@ pip install triton==3.1.0
 echo "===> Removing comfy-kitchen if exists..."
 pip uninstall -y comfy-kitchen || true
 
-# 11) ComfyUI-Manager (opsiyonel ama önerilir)
+# 11) ComfyUI-Manager
 echo "===> Installing ComfyUI-Manager..."
 cd custom_nodes
 git clone https://github.com/ltdrdata/ComfyUI-Manager.git || true
 cd ..
 
-# 12) Ortam değişkenleri (H100 stabilite için)
+# 12) Ortam değişkenleri (H100 stabilite)
 echo "===> Setting environment flags..."
 echo 'export COMFYUI_DISABLE_KITCHEN=1' >> ~/.bashrc
 echo 'export COMFYUI_DISABLE_TRITON=1' >> ~/.bashrc
@@ -95,8 +100,9 @@ rm -rf custom_nodes/.cache
 # 14) Final mesaj
 echo "========================================="
 echo " ComfyUI installation COMPLETE!"
+echo " Location: $COMFY_DIR"
 echo " To start ComfyUI:"
-echo "   cd ~/ComfyUI"
+echo "   cd $COMFY_DIR"
 echo "   source venv/bin/activate"
-echo "   python main.py"
+echo "   python main.py --listen --port 6006"
 echo "========================================="
