@@ -1,4 +1,5 @@
-mv /workspace/ComfyUI/ /workspace/ComfyUI-Old/
+cd  /workspace
+mv ComfyUI ComfyUI2
 #git pull --rebase --autostash
 #source venv/bin/activate
 #pip install -r requirements.txt
