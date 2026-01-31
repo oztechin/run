@@ -34,7 +34,7 @@ rm -rf ~/.cache/pip
 # 3) ComfyUI klonla
 echo "===> Cloning ComfyUI into $COMFY_DIR ..."
 cd "$BASE_DIR"
-git clone https://github.com/comfyanonymous/ComfyUI.git
+git clone https://github.com/comfyanonymous/ComfyUI.git ComfyUI2
 
 cd "$COMFY_DIR"
 
