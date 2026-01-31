@@ -1,5 +1,5 @@
 cd  /workspace
-mv ComfyUI ComfyUI2
+
 #git pull --rebase --autostash
 #source venv/bin/activate
 #pip install -r requirements.txt
@@ -11,7 +11,7 @@ set -e
 echo "===> ComfyUI Clean Installer (H100 + cu130 @ /workspace)"
 
 BASE_DIR="/workspace"
-COMFY_DIR="$BASE_DIR/ComfyUI"
+COMFY_DIR="$BASE_DIR/ComfyUI2"
 
 # 0) NVIDIA kontrol
 echo "===> Checking NVIDIA driver..."
