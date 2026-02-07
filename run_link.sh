@@ -6,7 +6,7 @@ ln -s /models/     /workspace/ComfyUI/models/text_encoders
 ln -s /models/     /workspace/ComfyUI/models/vae
 ln -s /models/     /workspace/ComfyUI/models/loras
 ln -s /training/   /workspace/ComfyUI/models/loras
-ln -s /models/     /workspace/ComfyUI/models/latent_upscale_models/
+ln -s /models/     /workspace/ComfyUI/models/latent_upscale_models
 
 ln -s /training/   /workspace/ComfyUI2/models/checkpoints
 ln -s /training/   /workspace/ComfyUI2/models/diffusion_models
@@ -16,4 +16,4 @@ ln -s /models/     /workspace/ComfyUI2/models/text_encoders
 ln -s /models/     /workspace/ComfyUI2/models/vae
 ln -s /models/     /workspace/ComfyUI2/models/loras
 ln -s /training/   /workspace/ComfyUI2/models/loras
-ln -s /models/     /workspace/ComfyUI2/models/latent_upscale_models/
+ln -s /models/     /workspace/ComfyUI2/models/latent_upscale_models
