@@ -7,4 +7,4 @@ unset LD_LIBRARY_PATH
 LOGFILE="/workspace/kohya_gui.log"
 
 # GUI + LOG
-./gui.sh --listen=0.0.0.0 --share --noverify --server_port 7860 2>&1 | tee -a "$LOGFILE"
+#./gui.sh --listen=0.0.0.0 --share --noverify --server_port 7860 2>&1 | tee -a "$LOGFILE"
