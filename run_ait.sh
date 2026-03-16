@@ -1,7 +1,11 @@
  
 cd /workspace/ai-toolkit
 git pull
+rm -rf venv
+python3 -m venv venv
+source venv/bin/activate
 pip install --upgrade pip
+python -m pip install --upgrade pip setuptools wheel
 cat << 'EOF' > requirements-gpu.txt
 --index-url https://download.pytorch.org/whl/cu130
 torch
