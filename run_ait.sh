@@ -1,15 +1,57 @@
+ 
 cd /workspace/ai-toolkit
-#python -m venv venv
-source venv/bin/activate
 git pull
-#pip install -r requirements.txt
-#cd ui
-#npm run build_and_start 2>&1 | tee -a "/workspace/ait.log"
-
 pip install --upgrade pip
-pip install -r requirements.txt
-
-# UI
+cat << 'EOF' > requirements-gpu.txt
+--index-url https://download.pytorch.org/whl/cu130
+torch
+torchvision
+torchaudio
+EOF
+cat << 'EOF' > requirements.txt
+torchao==0.10.0
+safetensors
+git+https://github.com/huggingface/diffusers@8600b4c10d67b0ce200f664204358747bd53c775
+transformers==4.57.3
+lycoris-lora==1.8.3
+flatten_json
+pyyaml
+oyaml
+tensorboard
+kornia
+invisible-watermark
+einops
+accelerate
+toml
+albumentations==1.4.15
+albucore==0.0.16
+pydantic
+omegaconf
+k-diffusion
+open_clip_torch
+timm
+prodigyopt
+controlnet_aux==0.0.10
+python-dotenv
+hf_transfer
+lpips
+pytorch_fid
+optimum-quanto==0.2.4
+sentencepiece
+huggingface_hub
+peft
+gradio
+python-slugify
+opencv-python
+pytorch-wavelets==1.3.0
+matplotlib==3.10.1
+setuptools==69.5.1
+scipy==1.12.0
+av==16.0.1
+torchcodec
+EOF
+pip install -r  requirements-gpu.txt
+pip install -r  requirements.txt
+pip install "bitsandbytes>=0.48.0"
 cd ui
 npm install
-#npm run build_and_start 2>&1 | tee -a "/workspace/ait.log"
